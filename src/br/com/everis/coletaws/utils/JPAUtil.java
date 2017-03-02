@@ -6,35 +6,26 @@ import javax.persistence.Persistence;
 
 public class JPAUtil {
 
-    public static final long serialVersionUID = 1L;
+	public static final long serialVersionUID = 1L;
 
-    private static EntityManagerFactory factory;
-//    private static final SessionFactory sessionFactory;
+	private static EntityManagerFactory factory;
 
-    static {
-        try {
-            System.out.println("======================== INICIALIZANDO ColetaPU ========================");
-            factory = Persistence.createEntityManagerFactory("ColetaPU");
-//            Configuration configuration = new Configuration();
-//            configuration.configure();
-//            ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
-//            sessionFactory = configuration.buildSessionFactory(serviceRegistry);
-            System.out.println("============================================================================");
-        } catch (Throwable t) {
-            throw t;
-        }
-    }
+	static {
+		try {
+			System.out.println("======================== INICIALIZANDO ColetaPU ========================");
+			factory = Persistence.createEntityManagerFactory("ColetaPU");
+			System.out.println("============================================================================");
+		} catch (Throwable t) {
+			throw t;
+		}
+	}
 
-    public static EntityManager getEntityManaged() {
-        return factory.createEntityManager();
+	public static EntityManager getEntityManaged() {
+		return factory.createEntityManager();
 
-    }
+	}
 
-//    public static SessionFactory getSessionFactory() {
-//        return sessionFactory;
-//    }
-
-    public static void close() {
-        factory.close();
-    }
+	public static void close() {
+		factory.close();
+	}
 }

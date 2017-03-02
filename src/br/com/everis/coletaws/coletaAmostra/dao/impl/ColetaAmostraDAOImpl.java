@@ -7,7 +7,7 @@ import javax.persistence.EntityTransaction;
 
 /**
  *
- * @author Wellington GonÃ§alves Pires
+ * @author Wellington Gonçalves Pires
  */
 public class ColetaAmostraDAOImpl extends JpaDao<Integer, ColetaAmostra> implements IColetaAmostraDAO {
 

@@ -1,9 +1,12 @@
 package br.com.everis.coletaws.loja.dao.impl;
 
+import java.util.List;
+
+import javax.persistence.TypedQuery;
+
 import br.com.everis.coletaws.dao.JpaDao;
 import br.com.everis.coletaws.loja.dao.ILojaDAO;
 import br.com.everis.coletaws.loja.model.Loja;
-import java.util.List;
 
 /**
  *
@@ -14,7 +17,8 @@ public class LojaDAOImpl extends JpaDao<Integer, Loja> implements ILojaDAO {
     @Override
     public List<Loja> buscarLojas() throws Exception {
         try {
-            return entityManager.createQuery("FROM " + entityClass.getName()).getResultList();
+        	TypedQuery<Loja> lojaQuery = entityManager.createQuery("FROM " + entityClass.getName(), Loja.class);
+            return lojaQuery.getResultList();
         } finally {
             entityManager.close();
         }

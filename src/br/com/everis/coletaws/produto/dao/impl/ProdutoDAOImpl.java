@@ -5,6 +5,8 @@ import br.com.everis.coletaws.produto.dao.IProdutoDAO;
 import br.com.everis.coletaws.produto.model.Produto;
 import java.util.List;
 
+import javax.persistence.TypedQuery;
+
 /**
  *
  * @author Wellington Gonçalves Pires
@@ -14,9 +16,8 @@ public class ProdutoDAOImpl extends JpaDao<Integer, Produto> implements IProduto
     @Override
     public List<Produto> buscarProdutos() throws Exception {
         try {
-            //SELECT P.id_produto, P.produto, P.atividade FROM sysnac.produtos P WHERE P.id_loja = 2
-            String strQuery = "SELECT new Produto(P.idProduto, P.nomeProduto) FROM " + entityClass.getName() + " P";
-            return entityManager.createQuery(strQuery).getResultList();
+            TypedQuery<Produto> queryProduto = entityManager.createQuery("FROM " + entityClass.getName(), Produto.class);
+            return queryProduto.getResultList();
         } finally {
             entityManager.close();
         }

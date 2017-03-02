@@ -5,6 +5,8 @@ import br.com.everis.coletaws.amostradoreslojasunidades.model.AmostradoresLojasU
 import br.com.everis.coletaws.dao.JpaDao;
 import java.util.List;
 
+import javax.persistence.TypedQuery;
+
 /**
  *
  * @author Wellington Gonçalves Pires
@@ -14,7 +16,8 @@ public class AmostradoresLojasUnidadesDAOImpl extends JpaDao<Integer, Amostrador
     @Override
     public List<AmostradoresLojasUnidades> buscarAmostradoresLojasUnidades() {
         try{
-            return entityManager.createQuery("FROM " + entityClass.getName()).getResultList();
+        	TypedQuery<AmostradoresLojasUnidades> amostradoresLojasUnidadesQuery = entityManager.createQuery("FROM " + entityClass.getName(), AmostradoresLojasUnidades.class);
+            return amostradoresLojasUnidadesQuery.getResultList();
         }finally{
             entityManager.close();
         }

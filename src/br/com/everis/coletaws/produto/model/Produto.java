@@ -52,7 +52,6 @@ public class Produto implements Serializable {
         this.nomeProduto = nomeProduto;
     }
 
-
     @Override
     public int hashCode() {
         int hash = 3;
