@@ -8,6 +8,9 @@ import java.util.Objects;
 import javax.persistence.Embeddable;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 /**
  *
  * @author Wellington Gonçalves Pires
@@ -25,6 +28,7 @@ public class LojaProdutoAtividadePK implements Serializable{
     private Atividade atividade = null;
 
     @ManyToOne
+    @Cache(usage=CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     public Loja getLoja() {
         return loja;
     }
@@ -34,6 +38,7 @@ public class LojaProdutoAtividadePK implements Serializable{
     }
 
     @ManyToOne
+    @Cache(usage=CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     public Produto getProduto() {
         return produto;
     }
@@ -43,6 +48,7 @@ public class LojaProdutoAtividadePK implements Serializable{
     }
 
     @ManyToOne
+    @Cache(usage=CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     public Atividade getAtividade() {
         return atividade;
     }
@@ -83,5 +89,4 @@ public class LojaProdutoAtividadePK implements Serializable{
         }
         return true;
     }
-    
 }

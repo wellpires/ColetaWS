@@ -8,12 +8,16 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 /**
  *
  * @author Wellington Gonçalves Pires
  */
 @Entity
 @Table(name = "lojas_produtos_atividades")
+@Cache(usage=CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 @AssociationOverrides({
     @AssociationOverride(name = "lojaProdutoAtividadePK.loja", joinColumns = @JoinColumn(name ="id_loja")),
     @AssociationOverride(name = "lojaProdutoAtividadePK.produto", joinColumns = @JoinColumn(name ="id_produto")),

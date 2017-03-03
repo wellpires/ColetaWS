@@ -12,12 +12,16 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 /**
  *
  * @author Wellington Gonçalves Pires
  */
 @Entity
 @Table(name = "coleta_amostra")
+@Cache(usage=CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class ColetaAmostra implements Serializable {
 
     private static final long serialVersionUID = 1L;

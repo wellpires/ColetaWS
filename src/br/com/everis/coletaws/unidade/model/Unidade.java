@@ -16,12 +16,16 @@ import javax.persistence.NamedEntityGraphs;
 import javax.persistence.NamedSubgraph;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 /**
  *
- * @author Wellington Gonçaalves Pires
+ * @author Wellington Gonçalves Pires
  */
 @Entity
 @Table(name = "unidades")
+@Cache(usage=CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Unidade implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -47,6 +51,7 @@ public class Unidade implements Serializable {
 
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "id_loja")
+	@Cache(usage=CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 	private Loja loja = null;
 
 	@Column(name = "unidade", nullable = false, length = 60)

@@ -8,6 +8,9 @@ import java.util.Objects;
 import javax.persistence.Embeddable;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 /**
  *
  * @author Wellington Gonçalves Pires
@@ -24,6 +27,7 @@ public class AmostradoresLojasUnidadesPK implements Serializable {
     private Unidade unidade = null;
 
     @ManyToOne
+    @Cache(usage=CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     public Amostrador getAmostrador() {
         return amostrador;
     }
@@ -33,6 +37,7 @@ public class AmostradoresLojasUnidadesPK implements Serializable {
     }
 
     @ManyToOne
+    @Cache(usage=CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     public Loja getLoja() {
         return loja;
     }
@@ -42,6 +47,7 @@ public class AmostradoresLojasUnidadesPK implements Serializable {
     }
 
     @ManyToOne
+    @Cache(usage=CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     public Unidade getUnidade() {
         return unidade;
     }
