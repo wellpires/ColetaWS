@@ -19,6 +19,7 @@ import org.json.simple.parser.JSONParser;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
+import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 import br.com.everis.coletaws.amostrador.model.Amostrador;
 import br.com.everis.coletaws.amostrador.services.IAmostradorService;
@@ -67,7 +68,7 @@ public class ColetaWS {
     private IAmostradoresLojasUnidadesService amostradoresLojasUnidadesService = null;
 
     @GET
-    @Path("/buscarAmostrador")
+    @Path("/buscarAmostradores")
     @Produces(MediaType.APPLICATION_JSON)
     public Response buscarAmostrador() {
         try {
@@ -175,7 +176,7 @@ public class ColetaWS {
     @Consumes(MediaType.TEXT_PLAIN)
     public Response buscarAmostradoresLojasUnidades() {
         try {
-
+        	
             amostradoresLojasUnidadesService = new AmostradoresLojasUnidadesServiceImpl();
             List<AmostradoresLojasUnidades> lstAmostradoresLojasUnidades = amostradoresLojasUnidadesService.buscarAmostradoresLojasUnidades();
             String jsonString = new Gson().toJson(lstAmostradoresLojasUnidades);
