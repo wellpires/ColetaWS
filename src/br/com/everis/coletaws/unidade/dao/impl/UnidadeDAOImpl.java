@@ -10,7 +10,7 @@ import br.com.everis.coletaws.unidade.model.Unidade;
 
 /**
  *
- * @author Wellington GonÃ§alves Pires
+ * @author Wellington Gonçalves Pires
  */
 public class UnidadeDAOImpl extends JpaDao<Integer, Unidade> implements IUnidadeDAO {
 
@@ -19,6 +19,7 @@ public class UnidadeDAOImpl extends JpaDao<Integer, Unidade> implements IUnidade
 		try {
 			TypedQuery<Unidade> unidadeQuery = entityManager.createQuery("SELECT new Unidade(U.idUnidade, U.nomeUnidade, U.loja.idLoja) FROM "
 							+ entityClass.getName() + " U", Unidade.class);
+			unidadeQuery.setHint("org.hibernate.cacheable", "true");
 			return unidadeQuery.getResultList();
 		} finally {
 			entityManager.close();

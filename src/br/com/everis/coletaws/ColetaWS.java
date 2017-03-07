@@ -1,5 +1,25 @@
 package br.com.everis.coletaws;
 
+import java.text.SimpleDateFormat;
+import java.util.List;
+import java.util.Locale;
+
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonSyntaxException;
+
 import br.com.everis.coletaws.amostrador.model.Amostrador;
 import br.com.everis.coletaws.amostrador.services.IAmostradorService;
 import br.com.everis.coletaws.amostrador.services.impl.AmostradorServiceImpl;
@@ -27,21 +47,7 @@ import br.com.everis.coletaws.produto.service.impl.ProdutoServiceImpl;
 import br.com.everis.coletaws.unidade.model.Unidade;
 import br.com.everis.coletaws.unidade.service.IUnidadeService;
 import br.com.everis.coletaws.unidade.service.impl.UnidadeServiceImpl;
-import com.google.gson.Gson;
-import com.google.gson.JsonSyntaxException;
-import java.text.SimpleDateFormat;
-import java.util.List;
-import java.util.Locale;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
+import br.com.everis.coletaws.utils.ColetaWSUtils;
 
 /**
  *
@@ -156,16 +162,8 @@ public class ColetaWS {
             lojaProdutoAtividadePKService = new LojaProdutoAtividadePKServiceImpl();
             List<LojaProdutosAtividade> lstLojaProdutoAtividades = lojaProdutoAtividadePKService.buscarLojaProdutoAtividade();
 
-            JSONArray jsonArray = new JSONArray();
-            for (LojaProdutosAtividade lpa : lstLojaProdutoAtividades) {
-                JSONObject item = new JSONObject();
-                item.put("idLoja", lpa.getLojaProdutoAtividadePK().getLoja().getIdLoja());
-                item.put("idProduto", lpa.getLojaProdutoAtividadePK().getProduto().getIdProduto());
-                item.put("idAtividade", lpa.getLojaProdutoAtividadePK().getAtividade().getIdAtividade());
-                jsonArray.add(item);
-            }
-
-            return Response.ok(new Gson().toJson(jsonArray)).build();
+            String jsonString = new Gson().toJson(lstLojaProdutoAtividades);
+            return Response.ok(jsonString).build();
         } catch (Exception e) {
             return Response.status(Response.Status.SERVICE_UNAVAILABLE).entity(e.getMessage()).type(MediaType.TEXT_PLAIN).build();
         }
@@ -180,17 +178,8 @@ public class ColetaWS {
 
             amostradoresLojasUnidadesService = new AmostradoresLojasUnidadesServiceImpl();
             List<AmostradoresLojasUnidades> lstAmostradoresLojasUnidades = amostradoresLojasUnidadesService.buscarAmostradoresLojasUnidades();
-
-            JSONArray jsonArray = new JSONArray();
-            for (AmostradoresLojasUnidades alu : lstAmostradoresLojasUnidades) {
-                JSONObject item = new JSONObject();
-                item.put("idAmostrador", alu.getAmostradoresLojasUnidadesPK().getAmostrador().getIdAmostrador());
-                item.put("idLoja", alu.getAmostradoresLojasUnidadesPK().getLoja().getIdLoja());
-                item.put("idUnidade", alu.getAmostradoresLojasUnidadesPK().getUnidade().getIdUnidade());
-                jsonArray.add(item);
-            }
-
-            return Response.ok(new Gson().toJson(jsonArray)).build();
+            String jsonString = new Gson().toJson(lstAmostradoresLojasUnidades);
+            return Response.ok(jsonString).build();
 
         } catch (Exception e) {
             return Response.serverError().build();

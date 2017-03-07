@@ -18,10 +18,12 @@ public class LojaProdutoAtividadePKDAOImpl extends JpaDao<Integer, LojaProdutosA
 	@Override
 	public List<LojaProdutosAtividade> buscarLojaProdutoAtividade() throws Exception {
 		try {
-			TypedQuery<LojaProdutosAtividade> lojaProdutosAtividadeQuery = entityManager.createQuery(
-					"FROM " + entityClass.getName() + " AS LPA JOIN FETCH LPA.lojaProdutoAtividadePK.loja"
-							+ " JOIN FETCH LPA.lojaProdutoAtividadePK.produto"
-							+ " JOIN FETCH LPA.lojaProdutoAtividadePK.atividade", LojaProdutosAtividade.class);
+			TypedQuery<LojaProdutosAtividade> lojaProdutosAtividadeQuery = entityManager
+					.createQuery("SELECT new LojaProdutosAtividade(LPA.lojaProdutoAtividadePK.loja.idLoja,"
+							+ "LPA.lojaProdutoAtividadePK.produto.idProduto,"
+							+ "LPA.lojaProdutoAtividadePK.atividade.idAtividade) FROM " + entityClass.getName()
+							+ " LPA", LojaProdutosAtividade.class);
+			lojaProdutosAtividadeQuery.setHint("org.hibernate.cacheable", "true");
 			return lojaProdutosAtividadeQuery.getResultList();
 		} finally {
 			entityManager.close();

@@ -18,6 +18,7 @@ public class LojaDAOImpl extends JpaDao<Integer, Loja> implements ILojaDAO {
     public List<Loja> buscarLojas() throws Exception {
         try {
         	TypedQuery<Loja> lojaQuery = entityManager.createQuery("FROM " + entityClass.getName(), Loja.class);
+        	lojaQuery.setHint("org.hibernate.cacheable", "true");
             return lojaQuery.getResultList();
         } finally {
             entityManager.close();

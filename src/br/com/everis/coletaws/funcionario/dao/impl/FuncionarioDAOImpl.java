@@ -20,6 +20,7 @@ public class FuncionarioDAOImpl extends JpaDao<Integer, Funcionario> implements 
 			String strQuery = "SELECT new Funcionario(F.idFuncionario, F.nomeFuncionario,F.cargo, F.unidade.idUnidade) "
 					+ "FROM " + entityClass.getName() + " F";
 			TypedQuery<Funcionario> funcionarioQuery = entityManager.createQuery(strQuery, Funcionario.class);
+			funcionarioQuery.setHint("org.hibernate.cacheable", "true");
 			return funcionarioQuery.getResultList();
 		} finally {
 			entityManager.close();

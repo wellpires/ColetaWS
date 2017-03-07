@@ -13,7 +13,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 /**
  *
- * @author Wellington GonÃ§alves Pires
+ * @author Wellington Gonçalves Pires
  */
 @Entity
 @Table(name = "lojas_produtos_atividades")
@@ -26,11 +26,19 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 public class LojaProdutosAtividade implements Serializable{
     private static final long serialVersionUID = 1L;
  
+    private LojaProdutoAtividadePK lojaProdutoAtividadePK = new LojaProdutoAtividadePK();
+    private Long idLoja = null;
+    private Long idProduto = null;
+    private Long idAtividade = null;
+    
     public LojaProdutosAtividade(){
         
     }
-
-    private LojaProdutoAtividadePK lojaProdutoAtividadePK = new LojaProdutoAtividadePK();
+    public LojaProdutosAtividade(Long idLoja, Long idProduto, Long idAtividade){
+    	this.idLoja = idLoja;
+    	this.idProduto = idProduto;
+    	this.idAtividade = idAtividade;
+    }
 
     @EmbeddedId
     public LojaProdutoAtividadePK getLojaProdutoAtividadePK() {
@@ -40,5 +48,23 @@ public class LojaProdutosAtividade implements Serializable{
     public void setLojaProdutoAtividadePK(LojaProdutoAtividadePK lojaProdutoAtividadePK) {
         this.lojaProdutoAtividadePK = lojaProdutoAtividadePK;
     }
+	public Long getIdLoja() {
+		return idLoja;
+	}
+	public void setIdLoja(Long idLoja) {
+		this.idLoja = idLoja;
+	}
+	public Long getIdProduto() {
+		return idProduto;
+	}
+	public void setIdProduto(Long idProduto) {
+		this.idProduto = idProduto;
+	}
+	public Long getIdAtividade() {
+		return idAtividade;
+	}
+	public void setIdAtividade(Long idAtividade) {
+		this.idAtividade = idAtividade;
+	}
     
 }

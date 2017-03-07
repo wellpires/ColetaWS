@@ -18,6 +18,7 @@ public class AtividadeDAOImpl extends JpaDao<Integer, Atividade> implements IAti
     public List<Atividade> buscarAtividades() throws Exception {
         try {
             TypedQuery<Atividade> atividadeQuery = entityManager.createQuery("FROM " + entityClass.getName(), Atividade.class);
+            atividadeQuery.setHint("org.hibernate.cacheable", "true");
             return atividadeQuery.getResultList();
         } finally {
             entityManager.close();

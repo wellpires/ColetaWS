@@ -18,6 +18,7 @@ public class AmostradorDAOImpl extends JpaDao<Integer, Amostrador> implements IA
     public List<Amostrador> buscarAmostradores() throws Exception {
         try {
         	TypedQuery<Amostrador> amostradorQuery = entityManager.createQuery("FROM " + entityClass.getName(), Amostrador.class);
+        	amostradorQuery.setHint("org.hibernate.cacheable", "true");
             return amostradorQuery.getResultList();
         } finally {
             entityManager.close();

@@ -13,7 +13,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 /**
  *
- * @author Wellington GonÃ§alves Pires
+ * @author Wellington Gonçalves Pires
  */
 @Embeddable
 public class AmostradoresLojasUnidadesPK implements Serializable {

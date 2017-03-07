@@ -9,15 +9,16 @@ import javax.persistence.TypedQuery;
 
 /**
  *
- * @author Wellington GonÃ§alves Pires
+ * @author Wellington Gonçalves Pires
  */
 public class ProdutoDAOImpl extends JpaDao<Integer, Produto> implements IProdutoDAO {
 
     @Override
     public List<Produto> buscarProdutos() throws Exception {
         try {
-            TypedQuery<Produto> queryProduto = entityManager.createQuery("FROM " + entityClass.getName(), Produto.class);
-            return queryProduto.getResultList();
+            TypedQuery<Produto> produtoQuery = entityManager.createQuery("FROM " + entityClass.getName(), Produto.class);
+            produtoQuery.setHint("org.hibernate.cacheable", "true");
+            return produtoQuery.getResultList();
         } finally {
             entityManager.close();
         }
