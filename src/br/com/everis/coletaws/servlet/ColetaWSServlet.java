@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServlet;
 
 /**
  *
- * @author Wellington GonÃ§alves Pires
+ * @author Wellington Gonçalves Pires
  */
 public class ColetaWSServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;

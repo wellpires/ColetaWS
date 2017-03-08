@@ -7,7 +7,7 @@ package br.com.everis.coletaws.dao;
 
 /**
  *
- * @author Wellington GonÃ§alves Pires
+ * @author Wellington Gonçalves Pires
  */
 public interface Dao<K, E> {
 

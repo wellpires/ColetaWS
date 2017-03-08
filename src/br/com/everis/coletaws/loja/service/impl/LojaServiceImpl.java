@@ -1,15 +1,15 @@
 package br.com.everis.coletaws.loja.service.impl;
 
-import br.com.everis.coletaws.amostrador.model.Amostrador;
+import java.util.List;
+
 import br.com.everis.coletaws.loja.dao.ILojaDAO;
 import br.com.everis.coletaws.loja.dao.impl.LojaDAOImpl;
 import br.com.everis.coletaws.loja.model.Loja;
 import br.com.everis.coletaws.loja.service.ILojaService;
-import java.util.List;
 
 /**
  *
- * @author Wellington GonÃ§alves Pires
+ * @author Wellington Gonçalves Pires
  */
 public class LojaServiceImpl implements ILojaService {
 

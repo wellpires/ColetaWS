@@ -6,7 +6,7 @@ import javax.persistence.EntityManager;
 
 /**
  *
- * @author Wellington GonÃ§alves Pires
+ * @author Wellington Gonçalves Pires
  */
 public abstract class JpaDao<K, E> implements Dao<K, E> {
 

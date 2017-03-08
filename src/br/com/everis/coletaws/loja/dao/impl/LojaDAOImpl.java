@@ -10,7 +10,7 @@ import br.com.everis.coletaws.loja.model.Loja;
 
 /**
  *
- * @author Wellington GonÃ§alves Pires
+ * @author Wellington Gonçalves Pires
  */
 public class LojaDAOImpl extends JpaDao<Integer, Loja> implements ILojaDAO {
 

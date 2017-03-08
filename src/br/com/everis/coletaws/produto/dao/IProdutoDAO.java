@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  *
- * @author Wellington GonÃ§alves Pires
+ * @author Wellington Gonçalves Pires
  */
 public interface IProdutoDAO extends Dao<Integer, Produto> {
     
