@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  *
- * @author Wellington GonÃ§alves Pires
+ * @author Wellington Gonçalves Pires
  */
 public class AmostradorServiceImpl implements IAmostradorService {
     
