@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.google.gson.Gson;
-
 import br.com.everis.coletaws.amostrador.model.Amostrador;
 import br.com.everis.coletaws.amostrador.services.IAmostradorService;
 import br.com.everis.coletaws.amostradoreslojasunidades.service.IAmostradoresLojasUnidadesService;
@@ -48,7 +46,8 @@ public class ColetaWS {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return new Gson().toJson(lstAmostradores);
+//		return new Gson().toJson(lstAmostradores);
+		return "asdasd";
 	}
 
 //	@GET

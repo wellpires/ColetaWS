@@ -52,10 +52,8 @@ public class JPAConfiguration {
 		factoryBean.setPackagesToScan("br.com.everis.coletaws.unidade.model");
 		factoryBean.setPackagesToScan("br.com.everis.coletaws.funcionario.model");
 		factoryBean.setPackagesToScan("br.com.everis.coletaws.atividade.model");
-		factoryBean.setPackagesToScan("br.com.everis.coletaws.lojaprodutoatividade.model");
-		factoryBean.setPackagesToScan("br.com.everis.coletaws.lojaprodutoatividade.model");
-		factoryBean.setPackagesToScan("br.com.everis.coletaws.amostradoreslojasunidades.model");
-		factoryBean.setPackagesToScan("br.com.everis.coletaws.amostradoreslojasunidades.model");
+//		factoryBean.setPackagesToScan("br.com.everis.coletaws.lojaprodutoatividade.model");
+//		factoryBean.setPackagesToScan("br.com.everis.coletaws.amostradoreslojasunidades.model");
 
 		return factoryBean;
 	}

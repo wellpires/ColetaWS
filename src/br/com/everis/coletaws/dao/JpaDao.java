@@ -5,8 +5,6 @@ import java.lang.reflect.ParameterizedType;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import br.com.everis.coletaws.utils.JPAUtil;
-
 /**
  *
  * @author Wellington Gonçalves Pires
@@ -19,7 +17,6 @@ public abstract class JpaDao<K, E> implements Dao<K, E> {
 
     @SuppressWarnings("unchecked")
 	public JpaDao() {
-        this.entityManager = JPAUtil.getEntityManaged();
         ParameterizedType genericSuperclass = (ParameterizedType) getClass().getGenericSuperclass();
         this.entityClass = (Class<E>) genericSuperclass.getActualTypeArguments()[1];
     }
