@@ -1,8 +1,11 @@
 package br.com.everis.coletaws.dao;
 
-import br.com.everis.coletaws.utils.JPAUtil;
 import java.lang.reflect.ParameterizedType;
+
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import br.com.everis.coletaws.utils.JPAUtil;
 
 /**
  *
@@ -11,7 +14,7 @@ import javax.persistence.EntityManager;
 public abstract class JpaDao<K, E> implements Dao<K, E> {
 
     protected Class<E> entityClass;
-//    @PersistenceContext
+    @PersistenceContext
     protected EntityManager entityManager;
 
     public JpaDao() {
