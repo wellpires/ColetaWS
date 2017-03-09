@@ -17,7 +17,8 @@ public abstract class JpaDao<K, E> implements Dao<K, E> {
     @PersistenceContext
     protected EntityManager entityManager;
 
-    public JpaDao() {
+    @SuppressWarnings("unchecked")
+	public JpaDao() {
         this.entityManager = JPAUtil.getEntityManaged();
         ParameterizedType genericSuperclass = (ParameterizedType) getClass().getGenericSuperclass();
         this.entityClass = (Class<E>) genericSuperclass.getActualTypeArguments()[1];

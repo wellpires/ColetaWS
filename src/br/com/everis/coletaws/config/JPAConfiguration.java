@@ -3,7 +3,11 @@ package br.com.everis.coletaws.config;
 import java.beans.PropertyVetoException;
 import java.util.Properties;
 
+import javax.persistence.EntityManagerFactory;
+
 import org.springframework.context.annotation.Bean;
+import org.springframework.orm.jpa.JpaTransactionManager;
+import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -16,10 +20,10 @@ public class JPAConfiguration {
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() throws PropertyVetoException {
 		LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
-		factoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
+		JpaVendorAdapter jpaVendorAdapter = new HibernateJpaVendorAdapter();
+		factoryBean.setJpaVendorAdapter(jpaVendorAdapter);
 		
 		ComboPooledDataSource dataSource = new ComboPooledDataSource();
-		
 		dataSource.setDriverClass("org.postgresql.Driver");
 		dataSource.setUser("sysnac");
 		dataSource.setPassword("sysnac01");
@@ -56,9 +60,9 @@ public class JPAConfiguration {
 		return factoryBean;
 	}
 	
-//	@Bean
-//	public JpaTransactionManager transactionManager(EntityManagerFactory emf){
-//		return new JpaTransactionManager(emf);
-//	}
+	@Bean
+	public JpaTransactionManager transactionManager(EntityManagerFactory emf){
+		return new JpaTransactionManager(emf);
+	}
 	
 }
