@@ -1,16 +1,22 @@
 package br.com.everis.coletaws.produto.dao.impl;
 
-import br.com.everis.coletaws.dao.JpaDao;
-import br.com.everis.coletaws.produto.dao.IProdutoDAO;
-import br.com.everis.coletaws.produto.model.Produto;
 import java.util.List;
 
 import javax.persistence.TypedQuery;
+
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import br.com.everis.coletaws.dao.JpaDao;
+import br.com.everis.coletaws.produto.dao.IProdutoDAO;
+import br.com.everis.coletaws.produto.model.Produto;
 
 /**
  *
  * @author Wellington Gonçalves Pires
  */
+@Repository
+@Transactional
 public class ProdutoDAOImpl extends JpaDao<Integer, Produto> implements IProdutoDAO {
 
     @Override

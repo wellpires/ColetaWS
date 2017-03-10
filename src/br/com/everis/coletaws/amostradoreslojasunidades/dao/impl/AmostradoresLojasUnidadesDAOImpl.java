@@ -1,16 +1,22 @@
 package br.com.everis.coletaws.amostradoreslojasunidades.dao.impl;
 
-import br.com.everis.coletaws.amostradoreslojasunidades.dao.IAmostradoresLojasUnidadesDAO;
-import br.com.everis.coletaws.amostradoreslojasunidades.model.AmostradoresLojasUnidades;
-import br.com.everis.coletaws.dao.JpaDao;
 import java.util.List;
 
 import javax.persistence.TypedQuery;
+
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import br.com.everis.coletaws.amostradoreslojasunidades.dao.IAmostradoresLojasUnidadesDAO;
+import br.com.everis.coletaws.amostradoreslojasunidades.model.AmostradoresLojasUnidades;
+import br.com.everis.coletaws.dao.JpaDao;
 
 /**
  *
  * @author Wellington Gonçalves Pires
  */
+@Repository
+@Transactional
 public class AmostradoresLojasUnidadesDAOImpl extends JpaDao<Integer, AmostradoresLojasUnidades> implements IAmostradoresLojasUnidadesDAO{
 
     @Override

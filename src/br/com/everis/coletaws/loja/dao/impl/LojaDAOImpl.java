@@ -4,6 +4,9 @@ import java.util.List;
 
 import javax.persistence.TypedQuery;
 
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
 import br.com.everis.coletaws.dao.JpaDao;
 import br.com.everis.coletaws.loja.dao.ILojaDAO;
 import br.com.everis.coletaws.loja.model.Loja;
@@ -12,6 +15,8 @@ import br.com.everis.coletaws.loja.model.Loja;
  *
  * @author Wellington Gonçalves Pires
  */
+@Repository
+@Transactional
 public class LojaDAOImpl extends JpaDao<Integer, Loja> implements ILojaDAO {
 
     @Override

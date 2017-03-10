@@ -4,6 +4,9 @@ import java.util.List;
 
 import javax.persistence.TypedQuery;
 
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
 import br.com.everis.coletaws.dao.JpaDao;
 import br.com.everis.coletaws.funcionario.dao.IFuncionarioDAO;
 import br.com.everis.coletaws.funcionario.model.Funcionario;
@@ -12,6 +15,8 @@ import br.com.everis.coletaws.funcionario.model.Funcionario;
  *
  * @author Wellington Gonçalves Pires
  */
+@Repository
+@Transactional
 public class FuncionarioDAOImpl extends JpaDao<Integer, Funcionario> implements IFuncionarioDAO {
 
 	@Override

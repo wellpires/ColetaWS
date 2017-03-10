@@ -3,9 +3,9 @@ package br.com.everis.coletaws.amostrador.dao.impl;
 import java.util.List;
 
 import javax.persistence.TypedQuery;
-import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.com.everis.coletaws.amostrador.dao.IAmostradorDAO;
 import br.com.everis.coletaws.amostrador.model.Amostrador;
