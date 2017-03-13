@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
+import com.google.gson.reflect.TypeToken;
 
 import br.com.everis.coletaws.amostrador.model.Amostrador;
 import br.com.everis.coletaws.amostrador.services.IAmostradorService;
@@ -178,7 +179,7 @@ public class ColetaWS {
 		try {
 			JSONArray json = (JSONArray) new JSONParser().parse(coleta);
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", new Locale("pt", "BR"));
-			SimpleDateFormat sdfHora = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", new Locale("pt", "BR"));
+			List<ColetaAmostra> coletaAmostras = new Gson().fromJson(coleta, new TypeToken<List<ColetaAmostra>>(){}.getType());
 
 			for (Object object : json) {
 				ColetaAmostra coletaAmostra = new ColetaAmostra();
@@ -187,8 +188,8 @@ public class ColetaWS {
 				coletaAmostra.setLoja(jsonObject.get("loja").toString());
 				coletaAmostra.setUnidade(jsonObject.get("unidade").toString());
 				coletaAmostra.setDataColeta(sdf.parse(jsonObject.get("dataColeta").toString()));
-				coletaAmostra.setHoraColeta(sdfHora.parse(jsonObject.get("horaColeta").toString()));
-				coletaAmostra.setHoraReal(sdfHora.parse(jsonObject.get("horaReal").toString()));
+				coletaAmostra.setHoraColeta(sdf.parse(jsonObject.get("horaColeta").toString()));
+				coletaAmostra.setHoraReal(sdf.parse(jsonObject.get("horaReal").toString()));
 				coletaAmostra.setProduto(jsonObject.get("produto").toString());
 				coletaAmostra.setAtividade(jsonObject.get("atividade").toString());
 				coletaAmostra.setStatusAmostra("OK");
