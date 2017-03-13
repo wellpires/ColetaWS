@@ -1,8 +1,10 @@
 package br.com.everis.coletaws.coletaAmostra.model;
 
 import java.io.Serializable;
+import java.text.ParseException;
 import java.util.Date;
 import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,205 +17,207 @@ import javax.persistence.TemporalType;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
+import br.com.everis.coletaws.utils.ColetaWSUtils;
+
 /**
  *
  * @author Wellington Gonçalves Pires
  */
 @Entity
 @Table(name = "coleta_amostra")
-@Cache(usage=CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class ColetaAmostra implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_amostra")
-    private Long idAmostra = null;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_amostra")
+	private Long idAmostra = null;
 
-    @Column(name = "funcionario", length = 60)
-    private String funcionario = null;
+	@Column(name = "funcionario", length = 60)
+	private String funcionario = null;
 
-    @Column(name = "amostrador", nullable = false, length = 60)
-    private String amostrador = null;
+	@Column(name = "amostrador", nullable = false, length = 60)
+	private String amostrador = null;
 
-    @Column(name = "loja", nullable = false, length = 60)
-    private String loja = null;
+	@Column(name = "loja", nullable = false, length = 60)
+	private String loja = null;
 
-    @Column(name = "unidade", nullable = false, length = 60)
-    private String unidade = null;
+	@Column(name = "unidade", nullable = false, length = 60)
+	private String unidade = null;
 
-    @Column(name = "data_coleta", nullable = false)
-    @Temporal(value = TemporalType.DATE)
-    private Date dataColeta = null;
+	@Column(name = "data_coleta", nullable = false)
+	@Temporal(value = TemporalType.DATE)
+	private Date dataColeta = null;
 
-    @Column(name = "hora_coleta", nullable = false)
-    @Temporal(value = TemporalType.TIME)
-    private Date horaColeta = null;
+	@Column(name = "hora_coleta", nullable = false)
+	@Temporal(value = TemporalType.TIME)
+	private Date horaColeta = null;
 
-    @Column(name = "hora_real", nullable = false)
-    @Temporal(value = TemporalType.TIME)
-    private Date horaReal = null;
+	@Column(name = "hora_real", nullable = false)
+	@Temporal(value = TemporalType.TIME)
+	private Date horaReal = null;
 
-    @Column(name = "produto", nullable = false, length = 60)
-    private String produto = null;
+	@Column(name = "produto", nullable = false, length = 60)
+	private String produto = null;
 
-    @Column(name = "atividade", nullable = false, length = 60)
-    private String atividade = null;
+	@Column(name = "atividade", nullable = false, length = 60)
+	private String atividade = null;
 
-    @Column(name = "status_amostra", nullable = false, length = 60)
-    private String statusAmostra = null;
+	@Column(name = "status_amostra", nullable = false, length = 60)
+	private String statusAmostra = null;
 
-    public Long getIdAmostra() {
-        return idAmostra;
-    }
+	public Long getIdAmostra() {
+		return idAmostra;
+	}
 
-    public void setIdAmostra(Long idAmostra) {
-        this.idAmostra = idAmostra;
-    }
+	public void setIdAmostra(Long idAmostra) {
+		this.idAmostra = idAmostra;
+	}
 
-    public String getAmostrador() {
-        return amostrador;
-    }
+	public String getAmostrador() {
+		return amostrador;
+	}
 
-    public void setAmostrador(String amostrador) {
-        this.amostrador = amostrador;
-    }
+	public void setAmostrador(String amostrador) {
+		this.amostrador = amostrador;
+	}
 
-    public String getLoja() {
-        return loja;
-    }
+	public String getLoja() {
+		return loja;
+	}
 
-    public void setLoja(String loja) {
-        this.loja = loja;
-    }
+	public void setLoja(String loja) {
+		this.loja = loja;
+	}
 
-    public String getUnidade() {
-        return unidade;
-    }
+	public String getUnidade() {
+		return unidade;
+	}
 
-    public void setUnidade(String unidade) {
-        this.unidade = unidade;
-    }
+	public void setUnidade(String unidade) {
+		this.unidade = unidade;
+	}
 
-    public Date getDataColeta() {
-        return dataColeta;
-    }
+	public Date getDataColeta() {
+		return dataColeta;
+	}
 
-    public void setDataColeta(Date dataColeta) {
-        this.dataColeta = dataColeta;
-    }
+	public void setDataColeta(Date dataColeta) {
+		this.dataColeta = dataColeta;
+	}
 
-    public Date getHoraColeta() {
-        return horaColeta;
-    }
+	public Date getHoraColeta() {
+		return horaColeta;
+	}
 
-    public void setHoraColeta(Date horaColeta) {
-        this.horaColeta = horaColeta;
-    }
+	public void setHoraColeta(Date horaColeta) {
+		this.horaColeta = horaColeta;
+	}
 
-    public Date getHoraReal() {
-        return horaReal;
-    }
+	public Date getHoraReal() {
+		return horaReal;
+	}
 
-    public void setHoraReal(Date horaReal) {
-        this.horaReal = horaReal;
-    }
+	public void setHoraReal(Date horaReal) {
+		this.horaReal = horaReal;
+	}
 
-    public String getProduto() {
-        return produto;
-    }
+	public String getProduto() {
+		return produto;
+	}
 
-    public void setProduto(String produto) {
-        this.produto = produto;
-    }
+	public void setProduto(String produto) {
+		this.produto = produto;
+	}
 
-    public String getAtividade() {
-        return atividade;
-    }
+	public String getAtividade() {
+		return atividade;
+	}
 
-    public void setAtividade(String atividade) {
-        this.atividade = atividade;
-    }
+	public void setAtividade(String atividade) {
+		this.atividade = atividade;
+	}
 
-    public String getStatusAmostra() {
-        return statusAmostra;
-    }
+	public String getStatusAmostra() {
+		return statusAmostra;
+	}
 
-    public void setStatusAmostra(String statusAmostra) {
-        this.statusAmostra = statusAmostra;
-    }
+	public void setStatusAmostra(String statusAmostra) {
+		this.statusAmostra = statusAmostra;
+	}
 
-    public String getFuncionario() {
-        return funcionario;
-    }
+	public String getFuncionario() {
+		return funcionario;
+	}
 
-    public void setFuncionario(String funcionario) {
-        this.funcionario = funcionario;
-    }
+	public void setFuncionario(String funcionario) {
+		this.funcionario = funcionario;
+	}
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 59 * hash + Objects.hashCode(this.idAmostra);
-        hash = 59 * hash + Objects.hashCode(this.funcionario);
-        hash = 59 * hash + Objects.hashCode(this.amostrador);
-        hash = 59 * hash + Objects.hashCode(this.loja);
-        hash = 59 * hash + Objects.hashCode(this.unidade);
-        hash = 59 * hash + Objects.hashCode(this.dataColeta);
-        hash = 59 * hash + Objects.hashCode(this.horaColeta);
-        hash = 59 * hash + Objects.hashCode(this.horaReal);
-        hash = 59 * hash + Objects.hashCode(this.produto);
-        hash = 59 * hash + Objects.hashCode(this.atividade);
-        hash = 59 * hash + Objects.hashCode(this.statusAmostra);
-        return hash;
-    }
+	@Override
+	public int hashCode() {
+		int hash = 7;
+		hash = 59 * hash + Objects.hashCode(this.idAmostra);
+		hash = 59 * hash + Objects.hashCode(this.funcionario);
+		hash = 59 * hash + Objects.hashCode(this.amostrador);
+		hash = 59 * hash + Objects.hashCode(this.loja);
+		hash = 59 * hash + Objects.hashCode(this.unidade);
+		hash = 59 * hash + Objects.hashCode(this.dataColeta);
+		hash = 59 * hash + Objects.hashCode(this.horaColeta);
+		hash = 59 * hash + Objects.hashCode(this.horaReal);
+		hash = 59 * hash + Objects.hashCode(this.produto);
+		hash = 59 * hash + Objects.hashCode(this.atividade);
+		hash = 59 * hash + Objects.hashCode(this.statusAmostra);
+		return hash;
+	}
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final ColetaAmostra other = (ColetaAmostra) obj;
-        if (!Objects.equals(this.amostrador, other.amostrador)) {
-            return false;
-        }
-        if (!Objects.equals(this.funcionario, other.funcionario)) {
-            return false;
-        }
-        if (!Objects.equals(this.loja, other.loja)) {
-            return false;
-        }
-        if (!Objects.equals(this.unidade, other.unidade)) {
-            return false;
-        }
-        if (!Objects.equals(this.produto, other.produto)) {
-            return false;
-        }
-        if (!Objects.equals(this.atividade, other.atividade)) {
-            return false;
-        }
-        if (!Objects.equals(this.statusAmostra, other.statusAmostra)) {
-            return false;
-        }
-        if (!Objects.equals(this.idAmostra, other.idAmostra)) {
-            return false;
-        }
-        if (!Objects.equals(this.dataColeta, other.dataColeta)) {
-            return false;
-        }
-        if (!Objects.equals(this.horaColeta, other.horaColeta)) {
-            return false;
-        }
-        if (!Objects.equals(this.horaReal, other.horaReal)) {
-            return false;
-        }
-        return true;
-    }
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+		final ColetaAmostra other = (ColetaAmostra) obj;
+		if (!Objects.equals(this.amostrador, other.amostrador)) {
+			return false;
+		}
+		if (!Objects.equals(this.funcionario, other.funcionario)) {
+			return false;
+		}
+		if (!Objects.equals(this.loja, other.loja)) {
+			return false;
+		}
+		if (!Objects.equals(this.unidade, other.unidade)) {
+			return false;
+		}
+		if (!Objects.equals(this.produto, other.produto)) {
+			return false;
+		}
+		if (!Objects.equals(this.atividade, other.atividade)) {
+			return false;
+		}
+		if (!Objects.equals(this.statusAmostra, other.statusAmostra)) {
+			return false;
+		}
+		if (!Objects.equals(this.idAmostra, other.idAmostra)) {
+			return false;
+		}
+		if (!Objects.equals(this.dataColeta, other.dataColeta)) {
+			return false;
+		}
+		if (!Objects.equals(this.horaColeta, other.horaColeta)) {
+			return false;
+		}
+		if (!Objects.equals(this.horaReal, other.horaReal)) {
+			return false;
+		}
+		return true;
+	}
 }
