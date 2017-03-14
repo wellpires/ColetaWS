@@ -35,9 +35,9 @@ public class JPAConfiguration {
 		
 		ComboPooledDataSource dataSource = new ComboPooledDataSource();
 		dataSource.setDriverClass("org.postgresql.Driver");
-		dataSource.setUser("sysnac");
-		dataSource.setPassword("sysnac01");
-		dataSource.setJdbcUrl("jdbc:postgresql://localhost:5432/sysnac");
+		dataSource.setUser("systeste");
+		dataSource.setPassword("systeste01");
+		dataSource.setJdbcUrl("jdbc:postgresql://138.197.89.141:5432/sysnac");
 		
 		dataSource.setMinPoolSize(10);
 		dataSource.setMaxPoolSize(20);
@@ -48,7 +48,7 @@ public class JPAConfiguration {
 		Properties props = new Properties();
 		props.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
 		props.setProperty("hibernate.show_sql", "true");
-		props.setProperty("hibernate.default_schema", "sysnac");
+		props.setProperty("hibernate.default_schema", "systeste");
 		props.setProperty("hibernate.cache.use_second_level_cache", "true");
 		props.setProperty("hibernate.cache.use_query_cache", "true");
 		props.setProperty("hibernate.cache.region.factory_class", "org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory");
