@@ -1,25 +1,33 @@
 package br.com.everis.coletaws.amostrador.dao.impl;
 
+import java.util.List;
+
+import javax.persistence.TypedQuery;
+
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
 import br.com.everis.coletaws.amostrador.dao.IAmostradorDAO;
 import br.com.everis.coletaws.amostrador.model.Amostrador;
 import br.com.everis.coletaws.dao.JpaDao;
-import java.util.List;
-import javax.inject.Named;
 
 /**
  *
- * @author Wellington GonÃ§alves Pires
+ * @author Wellington Gonçalves Pires
  */
-@Named("amostradorDAOImpl")
+
+@Repository
+@Transactional
 public class AmostradorDAOImpl extends JpaDao<Integer, Amostrador> implements IAmostradorDAO {
 
     @Override
     public List<Amostrador> buscarAmostradores() throws Exception {
         try {
-            return entityManager.createQuery("FROM " + Amostrador.class.getName()).getResultList();
+        	TypedQuery<Amostrador> amostradorQuery = entityManager.createQuery("FROM " + entityClass.getName(), Amostrador.class);
+        	amostradorQuery.setHint("org.hibernate.cacheable", "true");
+            return amostradorQuery.getResultList();
         } finally {
             entityManager.close();
         }
     }
-
 }

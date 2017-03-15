@@ -9,70 +9,72 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 /**
  *
- * @author Wellington GonÃ§alves Pires
+ * @author Wellington Gonçalves Pires
  */
 
 @Entity
 @Table(name = "amostradores")
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Amostrador implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_amostrador")
-    private Long idAmostrador = null;
-    
-    @Column(name = "amostrador",nullable = false, length = 60)
-    private String nomeAmostrador = null;
-    
-    public Long getIdAmostrador() {
-        return idAmostrador;
-    }
+	private static final long serialVersionUID = 1L;
 
-    public void setIdAmostrador(Long idAmostrador) {
-        this.idAmostrador = idAmostrador;
-    }
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_amostrador")
+	private Long idAmostrador = null;
 
-    public String getNomeAmostrador() {
-        return nomeAmostrador;
-    }
+	@Column(name = "amostrador", nullable = false, length = 60)
+	private String nomeAmostrador = null;
 
-    public void setNomeAmostrador(String nomeAmostrador) {
-        this.nomeAmostrador = nomeAmostrador;
-    }
+	public Long getIdAmostrador() {
+		return idAmostrador;
+	}
 
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 97 * hash + Objects.hashCode(this.idAmostrador);
-        hash = 97 * hash + Objects.hashCode(this.nomeAmostrador);
-        return hash;
-    }
+	public void setIdAmostrador(Long idAmostrador) {
+		this.idAmostrador = idAmostrador;
+	}
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Amostrador other = (Amostrador) obj;
-        if (!Objects.equals(this.nomeAmostrador, other.nomeAmostrador)) {
-            return false;
-        }
-        if (!Objects.equals(this.idAmostrador, other.idAmostrador)) {
-            return false;
-        }
-        return true;
-    }
-    
-    
-    
+	public String getNomeAmostrador() {
+		return nomeAmostrador;
+	}
+
+	public void setNomeAmostrador(String nomeAmostrador) {
+		this.nomeAmostrador = nomeAmostrador;
+	}
+
+	@Override
+	public int hashCode() {
+		int hash = 3;
+		hash = 97 * hash + Objects.hashCode(this.idAmostrador);
+		hash = 97 * hash + Objects.hashCode(this.nomeAmostrador);
+		return hash;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+		final Amostrador other = (Amostrador) obj;
+		if (!Objects.equals(this.nomeAmostrador, other.nomeAmostrador)) {
+			return false;
+		}
+		if (!Objects.equals(this.idAmostrador, other.idAmostrador)) {
+			return false;
+		}
+		return true;
+	}
+
 }

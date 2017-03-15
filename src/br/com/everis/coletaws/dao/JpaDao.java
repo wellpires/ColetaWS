@@ -1,21 +1,22 @@
 package br.com.everis.coletaws.dao;
 
-import br.com.everis.coletaws.utils.JPAUtil;
 import java.lang.reflect.ParameterizedType;
+
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 /**
  *
- * @author Wellington GonÃ§alves Pires
+ * @author Wellington Gonçalves Pires
  */
 public abstract class JpaDao<K, E> implements Dao<K, E> {
 
     protected Class<E> entityClass;
-//    @PersistenceContext
+    @PersistenceContext
     protected EntityManager entityManager;
 
-    public JpaDao() {
-        this.entityManager = JPAUtil.getEntityManaged();
+    @SuppressWarnings("unchecked")
+	public JpaDao() {
         ParameterizedType genericSuperclass = (ParameterizedType) getClass().getGenericSuperclass();
         this.entityClass = (Class<E>) genericSuperclass.getActualTypeArguments()[1];
     }

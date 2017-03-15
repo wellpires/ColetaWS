@@ -1,22 +1,26 @@
 package br.com.everis.coletaws.amostrador.services.impl;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import br.com.everis.coletaws.amostrador.dao.IAmostradorDAO;
-import br.com.everis.coletaws.amostrador.dao.impl.AmostradorDAOImpl;
 import br.com.everis.coletaws.amostrador.model.Amostrador;
 import br.com.everis.coletaws.amostrador.services.IAmostradorService;
-import java.util.List;
 
 /**
  *
- * @author Wellington GonÃ§alves Pires
+ * @author Wellington Gonçalves Pires
  */
+@Service
 public class AmostradorServiceImpl implements IAmostradorService {
     
-    private IAmostradorDAO amostradorDAO;
+	@Autowired
+    private IAmostradorDAO amostradorDAO = null;
     
     @Override
     public List<Amostrador> buscarAmostradores() throws Exception {
-        amostradorDAO = new AmostradorDAOImpl();
         return amostradorDAO.buscarAmostradores();
     }
 }

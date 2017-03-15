@@ -12,12 +12,16 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 /**
  *
- * @author Wellington GonÃ§alves Pires
+ * @author Wellington Gonçalves Pires
  */
 @Entity
 @Table(name = "funcionarios")
+@Cache(usage=CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Funcionario implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -50,6 +54,7 @@ public class Funcionario implements Serializable {
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "id_unidade")
+    @Cache(usage=CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Unidade unidade = null;
 
     @Column(name = "id_unidade", insertable = false, updatable = false)
