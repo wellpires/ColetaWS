@@ -41,6 +41,7 @@ public class JPAConfiguration {
 		
 		dataSource.setMinPoolSize(10);
 		dataSource.setMaxPoolSize(20);
+		dataSource.setNumHelperThreads(12);
 		dataSource.setIdleConnectionTestPeriod(1);
 		
 		factoryBean.setDataSource(dataSource);

@@ -16,7 +16,7 @@ public class ServletSpringMVC extends AbstractAnnotationConfigDispatcherServletI
 		TimeZone.setDefault(TimeZone.getTimeZone("America/Sao_Paulo"));
 		return new Class[]{AppWebConfiguration.class,JPAConfiguration.class};
 	}
-
+	
 	@Override
 	protected String[] getServletMappings() {
 		return new String[]{"/"};

@@ -13,5 +13,5 @@ import br.com.everis.coletaws.amostrador.services.impl.AmostradorServiceImpl;
 @EnableWebMvc
 @ComponentScan(basePackageClasses={ColetaWS.class,AmostradorServiceImpl.class,IAmostradorService.class})
 public class AppWebConfiguration extends WebMvcConfigurerAdapter {
-	
+
 }

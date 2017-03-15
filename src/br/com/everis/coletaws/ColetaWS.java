@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
-import com.google.gson.reflect.TypeToken;
 
 import br.com.everis.coletaws.amostrador.model.Amostrador;
 import br.com.everis.coletaws.amostrador.services.IAmostradorService;
@@ -51,32 +50,32 @@ public class ColetaWS {
 
 	@Autowired
 	private IAmostradorService amostradorService = null;
-	
+
 	@Autowired
 	private ILojaService lojaService = null;
-	
+
 	@Autowired
 	private IUnidadeService unidadeService = null;
-	
+
 	@Autowired
 	private IFuncionarioService funcionarioService = null;
-	
+
 	@Autowired
 	private IProdutoService produtoService = null;
-	
+
 	@Autowired
 	private IColetaAmostraService coletaAmostraService = null;
-	
+
 	@Autowired
 	private IAtividadeService atividadeService = null;
-	
+
 	@Autowired
 	private ILojaProdutoAtividadePKService lojaProdutoAtividadePKService = null;
-	
+
 	@Autowired
 	private IAmostradoresLojasUnidadesService amostradoresLojasUnidadesService = null;
 
-	@RequestMapping(value = "/buscarAmostradores", produces = { MediaType.APPLICATION_JSON_VALUE }, method = RequestMethod.GET)
+	@RequestMapping(value = "/buscarAmostradores", produces = { MediaType.APPLICATION_JSON_VALUE + "; charset=utf-8" }, method = RequestMethod.GET)
 	public ResponseEntity<String> buscarAmostrador() throws ResponseException {
 		try {
 			List<Amostrador> lstAmostradores = amostradorService.buscarAmostradores();
@@ -87,8 +86,8 @@ public class ColetaWS {
 			throw new ResponseException(e.getMessage());
 		}
 	}
-	
-	@RequestMapping(value = "/buscarLojas", produces = { MediaType.APPLICATION_JSON_VALUE }, method = RequestMethod.GET)
+
+	@RequestMapping(value = "/buscarLojas", produces = { MediaType.APPLICATION_JSON_VALUE + "; charset=utf-8" }, method = RequestMethod.GET)
 	public ResponseEntity<String> buscarLojas() throws ResponseException {
 		try {
 			List<Loja> lstLoja = lojaService.buscarLojas();
@@ -100,7 +99,7 @@ public class ColetaWS {
 		}
 	}
 
-	@RequestMapping(value = "/buscarUnidades", produces = { MediaType.APPLICATION_JSON_VALUE }, method = RequestMethod.GET)
+	@RequestMapping(value = "/buscarUnidades", produces = { MediaType.APPLICATION_JSON_VALUE + "; charset=utf-8" }, method = RequestMethod.GET)
 	public ResponseEntity<String> buscarUnidades() throws ResponseException {
 		try {
 			List<Unidade> lstUnidades = unidadeService.buscarUnidades();
@@ -112,8 +111,8 @@ public class ColetaWS {
 		}
 
 	}
-	
-	@RequestMapping(value = "/buscarFuncionarios", produces = { MediaType.APPLICATION_JSON_VALUE }, method = RequestMethod.GET)
+
+	@RequestMapping(value = "/buscarFuncionarios", produces = { MediaType.APPLICATION_JSON_VALUE + "; charset=utf-8" }, method = RequestMethod.GET)
 	public ResponseEntity<String> buscarFuncionarios() throws ResponseException {
 		try {
 			List<Funcionario> lstFuncionarios = funcionarioService.buscarFuncionarios();
@@ -123,10 +122,10 @@ public class ColetaWS {
 		} catch (Exception e) {
 			throw new ResponseException(e.getMessage());
 		}
-	
-	 }
-	
-	@RequestMapping(value = "/buscarProdutos", produces = { MediaType.APPLICATION_JSON_VALUE }, method = RequestMethod.GET)
+
+	}
+
+	@RequestMapping(value = "/buscarProdutos", produces = { MediaType.APPLICATION_JSON_VALUE + "; charset=utf-8" }, method = RequestMethod.GET)
 	public ResponseEntity<String> buscarProdutos() throws ResponseException {
 		try {
 			List<Produto> lstProdutos = produtoService.buscarProdutos();
@@ -137,8 +136,8 @@ public class ColetaWS {
 			throw new ResponseException(e.getMessage());
 		}
 	}
-	
-	@RequestMapping(value = "/buscarAtividades", produces = { MediaType.APPLICATION_JSON_VALUE }, method = RequestMethod.GET)
+
+	@RequestMapping(value = "/buscarAtividades", produces = { MediaType.APPLICATION_JSON_VALUE + "; charset=utf-8" }, method = RequestMethod.GET)
 	public ResponseEntity<String> buscarAtividades() throws ResponseException {
 		try {
 			List<Atividade> lstAtividades = atividadeService.buscarAtividades();
@@ -149,11 +148,12 @@ public class ColetaWS {
 			throw new ResponseException(e.getMessage());
 		}
 	}
-	
-	@RequestMapping(value = "/buscarLojasProdutosAtividades", produces = { MediaType.APPLICATION_JSON_VALUE }, method = RequestMethod.GET)
+
+	@RequestMapping(value = "/buscarLojasProdutosAtividades", produces = { MediaType.APPLICATION_JSON_VALUE + "; charset=utf-8" }, method = RequestMethod.GET)
 	public ResponseEntity<String> buscarLojasProdutosAtividades() throws ResponseException {
 		try {
-			List<LojaProdutosAtividade> lstLojaProdutoAtividades = lojaProdutoAtividadePKService.buscarLojaProdutoAtividade();
+			List<LojaProdutosAtividade> lstLojaProdutoAtividades = lojaProdutoAtividadePKService
+					.buscarLojaProdutoAtividade();
 			return ResponseEntity.ok().body(new Gson().toJson(lstLojaProdutoAtividades));
 		} catch (NullPointerException npe) {
 			throw new NullPointerException(npe.getMessage());
@@ -161,11 +161,12 @@ public class ColetaWS {
 			throw new ResponseException(e.getMessage());
 		}
 	}
-	
-	@RequestMapping(value = "/buscarAmostradoresLojasUnidades", produces = { MediaType.APPLICATION_JSON_VALUE }, method = RequestMethod.GET)
+
+	@RequestMapping(value = "/buscarAmostradoresLojasUnidades", produces = { MediaType.APPLICATION_JSON_VALUE + "; charset=utf-8" }, method = RequestMethod.GET)
 	public ResponseEntity<String> buscarAmostradoresLojasUnidades() throws ResponseException {
 		try {
-			List<AmostradoresLojasUnidades> lstAmostradoresLojasUnidades = amostradoresLojasUnidadesService.buscarAmostradoresLojasUnidades();
+			List<AmostradoresLojasUnidades> lstAmostradoresLojasUnidades = amostradoresLojasUnidadesService
+					.buscarAmostradoresLojasUnidades();
 			return ResponseEntity.ok().body(new Gson().toJson(lstAmostradoresLojasUnidades));
 		} catch (NullPointerException npe) {
 			throw new NullPointerException(npe.getMessage());
@@ -173,13 +174,12 @@ public class ColetaWS {
 			throw new ResponseException(e.getMessage());
 		}
 	}
-	
-	@RequestMapping(value = "/gravarColeta", produces = { MediaType.APPLICATION_JSON_VALUE }, consumes = {MediaType.APPLICATION_JSON_VALUE}, method = RequestMethod.POST)
+
+	@RequestMapping(value = "/gravarColeta", produces = { MediaType.APPLICATION_JSON_VALUE + "; charset=utf-8" }, consumes = { MediaType.APPLICATION_JSON_VALUE + "; charset=utf-8" }, method = RequestMethod.POST)
 	public ResponseEntity<?> gravarColeta(@RequestBody String coleta) throws ResponseException {
 		try {
 			JSONArray json = (JSONArray) new JSONParser().parse(coleta);
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", new Locale("pt", "BR"));
-			List<ColetaAmostra> coletaAmostras = new Gson().fromJson(coleta, new TypeToken<List<ColetaAmostra>>(){}.getType());
 
 			for (Object object : json) {
 				ColetaAmostra coletaAmostra = new ColetaAmostra();
@@ -193,9 +193,7 @@ public class ColetaWS {
 				coletaAmostra.setProduto(jsonObject.get("produto").toString());
 				coletaAmostra.setAtividade(jsonObject.get("atividade").toString());
 				coletaAmostra.setStatusAmostra("OK");
-				if (jsonObject.get("funcionario") != null) {
-					coletaAmostra.setFuncionario(jsonObject.get("funcionario").toString());
-				}
+				coletaAmostra.setFuncionario(jsonObject.get("funcionario").toString());
 				coletaAmostraService.gravarColeta(coletaAmostra);
 			}
 
@@ -205,20 +203,21 @@ public class ColetaWS {
 		} catch (NullPointerException npe) {
 			throw new NullPointerException(npe.getMessage());
 		} catch (Exception e) {
+			e.printStackTrace();
 			throw new ResponseException(e.getMessage());
 		}
 	}
 
 	@ExceptionHandler(ResponseException.class)
-	public ResponseEntity<ErrorResponse> exceptionHandler(Exception ex){
+	public ResponseEntity<ErrorResponse> exceptionHandler(Exception ex) {
 		ErrorResponse error = new ErrorResponse();
 		error.setErrorCode(HttpStatus.PRECONDITION_FAILED.value());
 		error.setMessage(ex.getMessage());
 		return new ResponseEntity<ErrorResponse>(error, HttpStatus.OK);
 	}
-	
+
 	@ExceptionHandler(NullPointerException.class)
-	public ResponseEntity<ErrorResponse> nullPointerException(NullPointerException npe){
+	public ResponseEntity<ErrorResponse> nullPointerException(NullPointerException npe) {
 		ErrorResponse error = new ErrorResponse();
 		error.setErrorCode(HttpStatus.PRECONDITION_FAILED.value());
 		error.setMessage(npe.getMessage());

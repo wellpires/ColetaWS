@@ -29,17 +29,17 @@ public class AmostradoresLojasUnidades implements Serializable{
     
     private AmostradoresLojasUnidadesPK amostradoresLojasUnidadesPK = new AmostradoresLojasUnidadesPK();
     private Long idAmostrador = null;
-    private Long idLojas = null;
-    private Long idUnidades = null;
+    private Long idLoja = null;
+    private Long idUnidade = null;
 
     public AmostradoresLojasUnidades(){
     	
     }
     
-    public AmostradoresLojasUnidades(Long idAmostrador, Long idLojas, Long idUnidades) {
+    public AmostradoresLojasUnidades(Long idAmostrador, Long idLoja, Long idUnidade) {
     	this.idAmostrador = idAmostrador;
-    	this.idLojas = idLojas;
-    	this.idUnidades = idUnidades;
+    	this.idLoja = idLoja;
+    	this.idUnidade = idUnidade;
 	}
     
     @EmbeddedId
@@ -59,20 +59,20 @@ public class AmostradoresLojasUnidades implements Serializable{
 		this.idAmostrador = idAmostrador;
 	}
 
-	public Long getIdLojas() {
-		return idLojas;
+	public Long getIdLoja() {
+		return idLoja;
 	}
 
-	public void setIdLojas(Long idLojas) {
-		this.idLojas = idLojas;
+	public void setIdLoja(Long idLojas) {
+		this.idLoja = idLojas;
 	}
 
-	public Long getIdUnidades() {
-		return idUnidades;
+	public Long getIdUnidade() {
+		return idUnidade;
 	}
 
-	public void setIdUnidades(Long idUnidades) {
-		this.idUnidades = idUnidades;
+	public void setIdUnidade(Long idUnidades) {
+		this.idUnidade = idUnidades;
 	}
     
 }
