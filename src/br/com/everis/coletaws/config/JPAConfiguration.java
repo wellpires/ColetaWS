@@ -3,21 +3,17 @@ package br.com.everis.coletaws.config;
 import java.beans.PropertyVetoException;
 import java.util.Properties;
 
-import javax.ejb.ConcurrentAccessException;
-import javax.naming.Context;
-import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.jndi.JndiTemplate;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-
-import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 import br.com.everis.coletaws.amostrador.model.Amostrador;
 import br.com.everis.coletaws.amostradoreslojasunidades.model.AmostradoresLojasUnidades;
@@ -38,9 +34,8 @@ public class JPAConfiguration {
 		JpaVendorAdapter jpaVendorAdapter = new HibernateJpaVendorAdapter();
 		factoryBean.setJpaVendorAdapter(jpaVendorAdapter);
 		
-		Context ctx = new InitialContext();
-		DataSource dataSource = (DataSource) ctx.lookup("java:/comp/env/jdbc/SYSNAC");
-		
+		JndiTemplate jndi = new JndiTemplate();
+		DataSource dataSource = jndi.lookup("java:/comp/env/jdbc/SYSNAC_DB", DataSource.class);
 		factoryBean.setDataSource(dataSource);
 
 		Properties props = new Properties();
