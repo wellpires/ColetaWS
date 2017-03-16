@@ -35,7 +35,7 @@ public class JPAConfiguration {
 		factoryBean.setJpaVendorAdapter(jpaVendorAdapter);
 		
 		JndiTemplate jndi = new JndiTemplate();
-		DataSource dataSource = jndi.lookup("java:/comp/env/jdbc/SYSNAC_DB", DataSource.class);
+		DataSource dataSource = jndi.lookup("java:comp/env/jdbc/SYSNAC_DB", DataSource.class);
 		factoryBean.setDataSource(dataSource);
 
 		Properties props = new Properties();
