@@ -3,7 +3,12 @@ package br.com.everis.coletaws.config;
 import java.beans.PropertyVetoException;
 import java.util.Properties;
 
+import javax.ejb.ConcurrentAccessException;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.persistence.EntityManagerFactory;
+import javax.sql.DataSource;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.orm.jpa.JpaTransactionManager;
@@ -28,21 +33,13 @@ import br.com.everis.coletaws.unidade.model.Unidade;
 public class JPAConfiguration {
 	
 	@Bean
-	public LocalContainerEntityManagerFactoryBean entityManagerFactory() throws PropertyVetoException {
+	public LocalContainerEntityManagerFactoryBean entityManagerFactory() throws PropertyVetoException, NamingException {
 		LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
 		JpaVendorAdapter jpaVendorAdapter = new HibernateJpaVendorAdapter();
 		factoryBean.setJpaVendorAdapter(jpaVendorAdapter);
 		
-		ComboPooledDataSource dataSource = new ComboPooledDataSource();
-		dataSource.setDriverClass("org.postgresql.Driver");
-		dataSource.setUser("systeste");
-		dataSource.setPassword("systeste01");
-		dataSource.setJdbcUrl("jdbc:postgresql://138.197.89.141:5432/sysnac");
-		
-		dataSource.setMinPoolSize(10);
-		dataSource.setMaxPoolSize(20);
-		dataSource.setNumHelperThreads(12);
-		dataSource.setIdleConnectionTestPeriod(1);
+		Context ctx = new InitialContext();
+		DataSource dataSource = (DataSource) ctx.lookup("java:/comp/env/jdbc/SYSNAC");
 		
 		factoryBean.setDataSource(dataSource);
 
