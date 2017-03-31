@@ -1,6 +1,6 @@
 ---
 applications:
-- name: ColetaWS_Dev
+- name: ColetaWSDev
   memory: 500M
   host: coletawsdev
   domain: mybluemix.net
