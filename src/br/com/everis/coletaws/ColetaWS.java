@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Locale;
 
+import org.apache.log4j.Logger;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -48,6 +49,8 @@ import br.com.everis.coletaws.unidade.service.IUnidadeService;
 @RestController
 public class ColetaWS {
 
+	private Logger logger = Logger.getLogger(ColetaWS.class);
+	
 	@Autowired
 	private IAmostradorService amostradorService = null;
 
@@ -213,6 +216,7 @@ public class ColetaWS {
 		ErrorResponse error = new ErrorResponse();
 		error.setErrorCode(HttpStatus.PRECONDITION_FAILED.value());
 		error.setMessage(ex.getMessage());
+		logger.error(ex.getMessage(), ex);
 		return new ResponseEntity<ErrorResponse>(error, HttpStatus.OK);
 	}
 
@@ -221,6 +225,7 @@ public class ColetaWS {
 		ErrorResponse error = new ErrorResponse();
 		error.setErrorCode(HttpStatus.PRECONDITION_FAILED.value());
 		error.setMessage(npe.getMessage());
+		logger.error(npe.getMessage(), npe);
 		return new ResponseEntity<ErrorResponse>(error, HttpStatus.OK);
 	}
 }
