@@ -1,7 +1,5 @@
 package br.com.everis.coletaws.config;
 
-import java.util.TimeZone;
-
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class ServletSpringMVC extends AbstractAnnotationConfigDispatcherServletInitializer {
