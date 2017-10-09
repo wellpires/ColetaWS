@@ -122,7 +122,13 @@
 			<scope>runtime</scope>
 		</dependency>
 
-
+		<!-- JSON WEB TOKEN -->
+		<dependency>
+			<groupId>com.auth0</groupId>
+			<artifactId>java-jwt</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+		
 	</dependencies>
 
 	<build>
@@ -136,17 +142,17 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
-			
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>2.3</version>
-                <configuration>
-                    <warName>ColetaWS</warName>
-                    <outputDirectory>war</outputDirectory>
-                </configuration>
-            </plugin>
-            
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.3</version>
+				<configuration>
+					<warName>ColetaWS</warName>
+					<outputDirectory>war</outputDirectory>
+				</configuration>
+			</plugin>
+
 			<plugin>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.6</version>
