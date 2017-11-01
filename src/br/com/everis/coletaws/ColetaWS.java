@@ -223,4 +223,5 @@ public class ColetaWS {
 		error.setMessage(npe.getMessage());
 		return new ResponseEntity<ErrorResponse>(error, HttpStatus.OK);
 	}
+	
 }
