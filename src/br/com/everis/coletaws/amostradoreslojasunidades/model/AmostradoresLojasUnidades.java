@@ -13,7 +13,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 /**
  *
- * @author Wellington Gonçalves Pires
+ * @author Wellington GonÃ§alves Pires
  */
 @Entity
 @Table(name = "amostradores_lojas_unidades")

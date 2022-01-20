@@ -4,7 +4,7 @@ import br.com.everis.coletaws.coletaAmostra.model.ColetaAmostra;
 
 /**
  *
- * @author Wellington Gonçalves Pires
+ * @author Wellington GonÃ§alves Pires
  */
 public interface IColetaAmostraService {
     

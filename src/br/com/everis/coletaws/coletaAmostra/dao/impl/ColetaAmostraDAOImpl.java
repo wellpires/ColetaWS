@@ -9,7 +9,7 @@ import br.com.everis.coletaws.dao.JpaDao;
 
 /**
  *
- * @author Wellington Gonçalves Pires
+ * @author Wellington GonÃ§alves Pires
  */
 @Repository
 @Transactional

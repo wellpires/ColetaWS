@@ -13,7 +13,7 @@ import br.com.everis.coletaws.lojaprodutoatividade.model.LojaProdutosAtividade;
 
 /**
  *
- * @author Wellington Gonçalves Pires
+ * @author Wellington GonÃ§alves Pires
  */
 @Repository
 @Transactional

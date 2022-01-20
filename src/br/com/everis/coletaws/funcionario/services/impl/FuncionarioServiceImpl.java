@@ -11,7 +11,7 @@ import br.com.everis.coletaws.funcionario.services.IFuncionarioService;
 
 /**
  *
- * @author Wellington Gonçalves Pires
+ * @author Wellington GonÃ§alves Pires
  */
 @Service
 public class FuncionarioServiceImpl implements IFuncionarioService{

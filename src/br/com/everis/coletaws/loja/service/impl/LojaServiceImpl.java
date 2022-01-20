@@ -11,7 +11,7 @@ import br.com.everis.coletaws.loja.service.ILojaService;
 
 /**
  *
- * @author Wellington Gonçalves Pires
+ * @author Wellington GonÃ§alves Pires
  */
 @Service
 public class LojaServiceImpl implements ILojaService {

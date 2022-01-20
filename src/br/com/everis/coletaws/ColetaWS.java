@@ -43,7 +43,7 @@ import br.com.everis.coletaws.unidade.service.IUnidadeService;
 
 /**
  *
- * @author Wellington Gonçalves Pires
+ * @author Wellington GonÃ§alves Pires
  */
 @RestController
 public class ColetaWS {

@@ -11,7 +11,7 @@ import br.com.everis.coletaws.amostrador.services.IAmostradorService;
 
 /**
  *
- * @author Wellington Gonçalves Pires
+ * @author Wellington GonÃ§alves Pires
  */
 @Service
 public class AmostradorServiceImpl implements IAmostradorService {

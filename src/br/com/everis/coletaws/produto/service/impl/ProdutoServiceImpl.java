@@ -11,7 +11,7 @@ import br.com.everis.coletaws.produto.service.IProdutoService;
 
 /**
  *
- * @author Wellington Gonçalves Pires
+ * @author Wellington GonÃ§alves Pires
  */
 @Service
 public class ProdutoServiceImpl implements IProdutoService {

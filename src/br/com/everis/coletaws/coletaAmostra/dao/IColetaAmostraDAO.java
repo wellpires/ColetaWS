@@ -5,7 +5,7 @@ import br.com.everis.coletaws.dao.Dao;
 
 /**
  *
- * @author Wellington Gonçalves Pires
+ * @author Wellington GonÃ§alves Pires
  */
 public interface IColetaAmostraDAO extends Dao<Integer, ColetaAmostra>{
     

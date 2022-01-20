@@ -19,7 +19,7 @@ import br.com.everis.coletaws.loja.model.Loja;
 
 /**
  *
- * @author Wellington Gonçalves Pires
+ * @author Wellington GonÃ§alves Pires
  */
 @Entity
 @Table(name = "unidades")

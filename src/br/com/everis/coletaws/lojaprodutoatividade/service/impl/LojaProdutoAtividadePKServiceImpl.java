@@ -11,7 +11,7 @@ import br.com.everis.coletaws.lojaprodutoatividade.service.ILojaProdutoAtividade
 
 /**
  *
- * @author Wellington Gonçalves Pires
+ * @author Wellington GonÃ§alves Pires
  */
 @Service
 public class LojaProdutoAtividadePKServiceImpl implements ILojaProdutoAtividadePKService{

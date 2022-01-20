@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  *
- * @author Wellington Gonçalves Pires
+ * @author Wellington GonÃ§alves Pires
  */
 public interface ILojaProdutoAtividadePKService {
     

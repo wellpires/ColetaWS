@@ -11,7 +11,7 @@ import br.com.everis.coletaws.atividade.service.IAtividadeService;
 
 /**
  *
- * @author Wellington Gonçalves Pires
+ * @author Wellington GonÃ§alves Pires
  */
 @Service
 public class AtividadeServiceImpl implements IAtividadeService{

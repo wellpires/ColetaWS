@@ -11,7 +11,7 @@ import br.com.everis.coletaws.amostradoreslojasunidades.service.IAmostradoresLoj
 
 /**
  *
- * @author Wellington Gonçalves Pires
+ * @author Wellington GonÃ§alves Pires
  */
 @Service
 public class AmostradoresLojasUnidadesServiceImpl implements IAmostradoresLojasUnidadesService{

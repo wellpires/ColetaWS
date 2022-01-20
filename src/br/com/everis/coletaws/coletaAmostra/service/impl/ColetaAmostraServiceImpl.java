@@ -9,7 +9,7 @@ import br.com.everis.coletaws.coletaAmostra.service.IColetaAmostraService;
 
 /**
  *
- * @author Wellington Gonçalves Pires
+ * @author Wellington GonÃ§alves Pires
  */
 @Service
 public class ColetaAmostraServiceImpl implements IColetaAmostraService{
